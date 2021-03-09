@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "com.forasoft.protodatastoreexample";
+option java_multiple_files = true;
+
+message AppSettingsPreferences {
+    enum Background {
+        DARK_BACKGROUND = 0;
+        LIGHT_BACKGROUND = 1;
+    }
+
+    enum TextColor {
+        DARK_TEXT_COLOR = 0;
+        LIGHT_TEXT_COLOR = 1;
+    }
+
+    Background background = 1;
+    TextColor textColor = 2;
+    int32 textSize = 3;
+}
