@@ -18,3 +18,15 @@ message AppSettingsPreferences {
     TextColor textColor = 2;
     int32 textSize = 3;
 }
+
+message TestPreferences {
+    reserved 1, 8 to 10;
+    reserved "testProp";
+
+    string stringProp = 2;
+    int32 intProp = 3;
+    int64 longProp = 4;
+    float floatProp = 5;
+    double doubleProp = 6;
+    bool booleanProp = 7;
+}
