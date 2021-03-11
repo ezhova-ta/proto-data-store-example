@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        setBackgroundChipGroupListener()
+        setTextColorChipGroupListener()
+        setTextSizeChipGroupListener()
+    }
+
+    private fun setBackgroundChipGroupListener() {
         backgroundChipGroup?.setOnCheckedChangeListener { _, checkedId ->
             val background = when(checkedId) {
                 R.id.darkBackground -> AppBackground.DARK
@@ -31,7 +37,9 @@ class MainActivity : AppCompatActivity() {
                 appSettingsDataStoreManager.updateBackground(background)
             }
         }
+    }
 
+    private fun setTextColorChipGroupListener() {
         textColorChipGroup?.setOnCheckedChangeListener { _, checkedId ->
             val textColor = when(checkedId) {
                 R.id.darkTextColor -> AppTextColor.DARK
@@ -43,7 +51,9 @@ class MainActivity : AppCompatActivity() {
                 appSettingsDataStoreManager.updateTextColor(textColor)
             }
         }
+    }
 
+    private fun setTextSizeChipGroupListener() {
         textSizeChipGroup?.setOnCheckedChangeListener { _, checkedId ->
             val textSize = when(checkedId) {
                 R.id.smallTextSize -> 14
@@ -57,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun observeAppSettings() {
         appSettingsDataStoreManager.appSettingsFlow.asLiveData().observe(this) {
